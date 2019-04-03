@@ -12,8 +12,6 @@ let lastDisplayValue = '';
 const lastDisplayValueHistory = document.getElementById('history-value');
 let lastOperation = '';
 
-// console.log('numbdbtn', numberButtons);
-
 // calculator functions
 
 // clears everything from display panel
@@ -28,21 +26,17 @@ const setDisplayPanelValue = () => {
 }
 
 // handles click event on numeric buttons
-const handleNumberButtonClick = () => {
-    console.log('Number click', event.target.innerText);
+const handleNumberButtonClick = () => { 
 
     if (lastOperation != '' && !isEqualsButtonPressed) {
         lastOperation += event.target.innerText;
-        console.log('last operation', lastOperation);
     }
     
-
     updateDisplayValueOnNumberClick(event.target.innerText);
 }
 
 // handles click event on operator buttons
 const handleOperationButtonClick = () => {
-    console.log('operation click', event.target.innerText);
 
     let valueToDisplay = event.target.innerText;
     lastOperation = valueToDisplay;
@@ -96,8 +90,6 @@ const onEqualsClick = () => {
 
     // if equal button is pressed keep repeating the last operation on the last result
     if (isEqualsButtonPressed) {
-
-        console.log(eval(currentDisplayValue+lastOperation));
 
         // update last operation UI 
         lastDisplayValueHistory.innerText = currentDisplayValue + lastOperation;
